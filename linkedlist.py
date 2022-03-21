@@ -60,10 +60,15 @@ class LinkedList:
       itr = itr.next
     return False
 
-  def delete_by_value(self,value):
-    if self.search(value):
+  def remove_by_value(self, data):
+    # Remove first node that contains data
+    itr = self.head
+    if itr.data == data:
+      self.head = itr.next
+      return
+    if self.search(data):
       itr = self.head
-      while itr.next.data != value:
+      while itr.next.data != data:
         itr = itr.next
       itr.next = itr.next.next
     else:
